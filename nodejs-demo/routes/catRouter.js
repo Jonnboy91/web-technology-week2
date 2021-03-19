@@ -2,12 +2,10 @@
 
 const express = require('express');
 const router = express.Router();
+const catController = require('../controllers/catController');
 
 router.route('/')
-  .get((req, res) => {
-    console.log('get all cats');
-    res.send('Hello cats!');
-  })
+  .get(catController.cat_list_get)
   .post((req, res) => {
     console.log('post cat');
     res.send('post cat');
