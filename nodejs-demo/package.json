@@ -11,8 +11,7 @@
     "express",
     "routing",
     "middleware",
-    "databse",
-    "connection"
+    "database connection"
   ],
   "author": "Jon Nesten",
   "license": "ISC",
