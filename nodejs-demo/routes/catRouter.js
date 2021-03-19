@@ -3,24 +3,28 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  console.log('get cat');
-  res.send('Hello cat!');
-});
+router.route('/')
+  .get((req, res) => {
+    console.log('get all cats');
+    res.send('Hello cats!');
+  })
+  .post((req, res) => {
+    console.log('post cat');
+    res.send('post cat');
+  });
 
-router.post('/', (req, res) => {
-  console.log('post cat');
-  res.send('post cat');
-});
-
-router.put('/', (req, res) => {
-  console.log('put cat');
-  res.send('put cat');
-});
-
-router.delete('/', (req, res) => {
-  console.log('delete cat');
-  res.send('delete cat');
-});
+router.route('/:id')
+  .get((req, res) => {
+    console.log('get one cat by id', req.params);
+    res.send(`Hello cat with id ${req.params.id}!`);
+  })
+  .put((req, res) => {
+    console.log('put cat', req.params);
+    res.send(`put cat with id ${req.params.id}!`);
+  })
+  .delete((req, res) => {
+    console.log('delete cat', req.params);
+    res.send(`delete cat with id ${req.params.id}!`);
+  });
 
 module.exports = router;
