@@ -7,10 +7,15 @@ const cats = catModel.cats;
 const cat_list_get = async (req, res) => {
   console.log('get all cats from controllers', req.query);
   if (req.query.sort === 'age') {
-    //const catsSort = cats.slice().sort((catA, catB) => catA.age - catB.age);
-    res.json({todo: 'will do later'});
+    const catsSort = await catModel.getAllCatsSort('age');
+    res.json(catsSort);
+    return;
+  }else if (req.query.sort === 'name') {
+    const catsSort = await catModel.getAllCatsSort('name');
+    res.json(catsSort);
     return;
   }
+
   const cats = await catModel.getAllCats();
   res.json(cats);
 };
