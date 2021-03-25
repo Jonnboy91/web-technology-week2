@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(8,77,143,1) 33%, rgba(9,51,121,1) 57%, rgba(0,212,255,1) 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
+nav{
+    height: 50px;
+}
+
+p{
+    padding: 0 10px;
+    letter-spacing: 1px;
+}
+
+a[href*="index"]{
+    background-color: gold;
+}
+
+li{
+    letter-spacing: 1px;
+}
+
+ul.horizontal{
+    list-style-type: none;
+    padding: 0 0 0 10px;
+    margin: 0;
+    border-bottom: solid 2px black;
+    height: 100%;
+}
+
+ul.horizontal li {
+    float: left;
+}
+
+li.links{
+    padding: 15px;
+}
+
+li.links:hover{
+    background-color: yellow;
+}
+
+#heading{
+    text-align: center;
+}
+
+#main-image{
+    background-image: url(images/pofo-bg-desktop.jpg);
+    height: 50vh;
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#centerpage{
+    border-style: inset;
+    background-color: white;
+    width: 50%;
+    height: 80%;
+    margin: 0 auto 50px auto;
+    -webkit-box-shadow: -5px 2px 9px 1px rgba(0,0,0,0.25);
+    -moz-box-shadow: -5px 2px 9px 1px rgba(0,0,0,0.25);
+    box-shadow: -5px 2px 9px 1px rgba(0,0,0,0.25);
+}
+
+#textarea img{
+    height: 15vh;
+    width: auto;
+    border-radius: 50%;
+    float: left;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#list-items{
+    padding-bottom: 20px;
+}
+
+.list-heading{
+    padding-top: 20px;
+    padding-left: 10px;
+    letter-spacing: 1px;
+}
+
+#fun{
+    color: green;
+}
+
+#hard{
+    color: red;
+}
+
+#no-comments{
+    font-style: italic;
+}
+
+@media only screen and (max-width: 900px) {
+
+    #textarea img {
+        height: 100px;
+        margin: 0 50px 15px 40px;
+        padding: 0;
+    }
+
+    #main-image{
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    li.links{
+        padding: 2px;
+    }
+
+    ul.horizontal{
+        margin: 10px 10px;
+    }
+
+}
+
