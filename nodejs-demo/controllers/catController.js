@@ -26,8 +26,9 @@ const cat_get_by_id = (req, res) => {
 };
 
 const cat_post_new_cat = async (req, res) => {
-  console.log('post cat', req.body);
+  console.log('post cat', req.body, req.file);
   const cat = req.body;
+  cat.filename = req.file.filename;
   const catId = await catModel.insertCat(cat);
   cat.id = catId
   // res.send(`post cat: ${req.body.name} added`);

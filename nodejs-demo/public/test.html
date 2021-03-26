@@ -10,11 +10,11 @@
     <a href="cat">Get all cats</a>
     <a href="cat?sort=age">Cats sorted by age</a>
     
-    <form action="cat" method="post">
+    <form action="cat" method="post" enctype="multipart/form-data">
         Name: <input type="text" name="name"><br>
         Age: <input type="number" name="age"><br>
         Weight: <input type="number" name="weight"><br>
-        Image: <input type="text" name="filename"><br>
+        Image: <input type="file" name="filename"><br>
         <select id="owner" name="owner">
             <option value="1">John Doe</option>
             <option value="2">Jane Doez</option>
