@@ -29,8 +29,33 @@ const insertCat = async (cat) => {
   return row.insertId;
 };
 
+const updateCat = async (cat) => {
+  const [row] = await promisePool.execute('UPDATE `wop_cat` SET `name`=?, `age`=?, `weight`=? WHERE cat_id=?', [cat.name, cat.age, cat.weight, cat.id]);
+  console.log('update row', row);
+  return true;
+}
+
+const deleteCat = async (id) => {
+  const [row] = await promisePool.execute('DELETE FROM `wop_cat` WHERE cat_id=?', [id]);
+  console.log('delete row', row);
+  return true;
+}
+
+const getCatById = async(id) =>{
+  try{
+    const [row] = await promisePool.query('SELECT * FROM `wop_cat` WHERE cat_id=?', [id]);
+    return row;
+  }catch (e) {
+    console.error('error', e.message);
+  }
+
+}
+
 module.exports = {
   getAllCats,
   getAllCatsSort,
   insertCat,
+  updateCat,
+  deleteCat,
+  getCatById,
 };

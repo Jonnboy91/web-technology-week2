@@ -30,7 +30,7 @@ const createCatCards = (cats) => {
     p2.innerHTML = `Weight: ${cat.weight}kg`;
 
     const p3 = document.createElement('p');
-    p3.innerHTML = `Owner: ${cat.ownername}`;
+    p3.innerHTML = `Owner: ${cat.owner}`;
 
     // add selected cat's values to modify form
     const modButton = document.createElement('button');
