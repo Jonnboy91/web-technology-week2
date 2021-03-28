@@ -26,7 +26,6 @@ const getUserById = async(id) =>{
   }catch (e) {
     console.error('error', e.message);
   }
-
 }
 
 
