@@ -43,7 +43,7 @@ const cat_put_update_cat = async (req, res) => {
 };
 
 const cat_put_update_cat2 = async (req, res) => {
-  console.log('update cat using index2.html form', req.body);
+  console.log('update cat using html form', req.body);
   const cat = req.body;
   const success = await catModel.updateCat(cat);
   res.send(`cat updated ${success}`);
