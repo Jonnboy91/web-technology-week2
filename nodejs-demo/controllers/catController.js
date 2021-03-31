@@ -1,6 +1,7 @@
 // Controller
 'use strict';
 const catModel = require('../models/catModel');
+const {validationResult} = require('express-validator');
 
 const cat_list_get = async (req, res) => {
   console.log('get all cats from controllers', req.query);
@@ -25,6 +26,12 @@ const cat_get_by_id = async (req, res) => {
 };
 
 const cat_post_new_cat = async (req, res) => {
+  // Finds the validation errors in this request and wraps them in an object with handy functions
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   console.log('post cat', req.body, req.file);
   const cat = req.body;
   cat.filename = req.file.filename;
@@ -35,6 +42,11 @@ const cat_post_new_cat = async (req, res) => {
 };
 
 const cat_put_update_cat = async (req, res) => {
+  // Finds the validation errors in this request and wraps them in an object with handy functions
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   console.log('put cat', req.body);
   const cat = req.body;
   cat.id = req.params.id;
