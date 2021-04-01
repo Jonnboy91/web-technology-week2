@@ -5,29 +5,82 @@
 }
 
 .container{
+    height: 100vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.child1{
-    width: 150px;
-    height: 150px;
+.dog-side{
+    height: 100%;
     background-color: red;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.child2{
-    width: 150px;
-    height: 150px;
-    background-color: gold;
-}
-
-.child3{
-    width: 150px;
-    height: 150px;
+.dog-card{
+    height: 60%;
+    width: 60%;
     background-color: green;
 }
 
-.child4{
-    width: 150px;
-    height: 150px;
+.dog-photo{
+    height: 80%;
+    width: 100%;
+    background-color: yellow;
+    background-image: url("http://placekitten.com/1000/1000");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dog-text{
+    height: 20%;
+    width: 100%;
+    background-color: pink;
+}
+
+.card-side{
+    height: 100%;
+    background-color: gold;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-box{
+    height: 60%;
+    width: 60%;
+    background-color: brown;
+}
+
+.more-puppies{
+    height: 50px;
+    width: 100%;
     background-color: blue;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+}
+
+@media only screen and (min-width: 900px) {
+    .container{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .dog-side{
+        flex: none;
+        width: 50%;
+    }
+
+    .card-side{
+        flex: none;
+        width: 50%;
+    }
+
 }
