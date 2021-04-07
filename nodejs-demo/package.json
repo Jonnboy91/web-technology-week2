@@ -2,7 +2,7 @@
   "name": "nodejs-demo",
   "version": "1.0.0",
   "description": "testing node.js with express server",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,7 +19,11 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
+    "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   }
 }
