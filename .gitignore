@@ -257,3 +257,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,webstorm,node
+
+#https
+certrequest.csr
+ssl-cert.pem
+ssl-key.pem
