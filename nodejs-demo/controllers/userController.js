@@ -16,7 +16,7 @@ const user_get_by_id = async (req, res) => {
   res.json(user);
 };
 
-const user_post_new_user = async (req, res) => {
+const user_post_new_user = async (req, res, next) => {
   // Finds the validation errors in this request and wraps them in an object with handy functions
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -24,14 +24,19 @@ const user_post_new_user = async (req, res) => {
   }
 
   // Hashing password before insert into database
+  const user = {};
+  user.name = req.body.name;
+  user.username = req.body.username;
   const salt = bcrypt.genSaltSync(12);
-  req.body.password = bcrypt.hashSync(req.body.password, salt);
-  console.log('post user', req.body);
-  console.log(req.body.password)
-  const user = req.body;
-  const userId = await userModel.insertUser(user);
-  user.id = userId
-  res.json(user);
+  user.password = bcrypt.hashSync(req.body.password, salt);
+
+  const id = await userModel.insertUser(user);
+  if(id > 0){
+    next();
+  }else{
+    res.status(400).json({error: 'register error'});
+  }
+  // res.json(user);
 };
 
 module.exports = {

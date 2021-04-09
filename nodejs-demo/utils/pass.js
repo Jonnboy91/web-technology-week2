@@ -12,6 +12,7 @@ passport.use(new Strategy(
     async (username, password, done) => {
       const params = [username];
       try {
+        console.log('passport', password)
         const [user] = await userModel.getUserLogin(params);
         console.log('Local strategy', user); // result is binary row
         if (user === undefined) {

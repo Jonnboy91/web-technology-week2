@@ -13,6 +13,6 @@ router.post('/register',
     body('username').isEmail(),
     body('password').isStrongPassword({minLength: 8, minUppercase: 1}),
     userController.user_post_new_user,
-    authController.login,);
+    authController.login);
 
 module.exports = router;
