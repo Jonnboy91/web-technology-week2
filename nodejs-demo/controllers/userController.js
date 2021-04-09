@@ -1,5 +1,6 @@
 // Controller
 'use strict';
+const bcrypt = require('bcryptjs')
 const userModel = require('../models/userModel');
 const {validationResult} = require('express-validator');
 
@@ -21,7 +22,12 @@ const user_post_new_user = async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
+
+  // Hashing password before insert into database
+  const salt = bcrypt.genSaltSync(12);
+  req.body.password = bcrypt.hashSync(req.body.password, salt);
   console.log('post user', req.body);
+  console.log(req.body.password)
   const user = req.body;
   const userId = await userModel.insertUser(user);
   user.id = userId

@@ -21,6 +21,12 @@ const login = (req, res) => {
   })(req, res);
 };
 
+const logout = (req, res) => {
+  req.logout();
+  res.json({message: 'logout'});
+};
+
 module.exports = {
   login,
+  logout,
 };

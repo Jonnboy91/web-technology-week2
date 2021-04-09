@@ -14,7 +14,7 @@ const getAllUsers = async () => {
 };
 
 const insertUser = async (user) => {
-  const [row] = await promisePool.execute('INSERT INTO wop_user (name, email, password) VALUES (?, ?, ?)', [user.name, user.email, user.password]);
+  const [row] = await promisePool.execute('INSERT INTO wop_user (name, email, password) VALUES (?, ?, ?)', [user.name, user.username, user.password]);
   console.log('insert row', row)
   return row.insertId;
 };
