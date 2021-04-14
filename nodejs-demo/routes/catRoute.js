@@ -29,6 +29,7 @@ router.route('/')
     .get(catController.cat_list_get)
     .post(upload.single('filename'),
     testFile,
+    catController.make_thumbnail,
     body('name').isLength({min: 1}).escape().blacklist(';'),
     body('age').isLength({min: 1}).isNumeric(),
     body('weight').isLength({min: 1}).isNumeric(),
